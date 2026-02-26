@@ -1,0 +1,70 @@
+:root {
+    --bg-dark: #0f0f0f;
+    --card-bg: #1e1e1e;
+    --accent: #e74c3c;
+    --text-main: #ffffff;
+    --text-dim: #aaaaaa;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Video Grid Layout */
+.container { padding: 20px; }
+
+.category-row {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.video-card:hover { transform: scale(1.05); }
+
+.video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+
+.video-info { padding: 15px; }
+
+.video-info h4 { margin: 0 0 5px 0; font-size: 1rem; }
+
+.video-info p { color: var(--text-dim); font-size: 0.8rem; margin: 0; }
+
+/* Floating Logo Watermark */
+.video-container { position: relative; width: 100%; }
+
+.watermark {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 60px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Smart TV Mode Adjustment */
+.tv-mode .video-grid { gap: 40px; }
+.tv-mode .category-title { font-size: 2.5rem; }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponderr TV | Sculpt Yourself</title>
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+    <link rel="stylesheet" href="/assets/ui/style.css">
+    
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://img.youtube.com">
+</head>
+<body class="public-site">
+
+    <header>
+        <img src="/assets/logos/ponder-logo.png" alt="Ponderr TV Logo" class="main-logo">
+    </header>
+
+    <main class="hero-section">
+        <h1>Sculpt Yourself</h1>
+        <p>Expert K-12 Schooling & Professional Academy</p>
+        
+        <div class="cta-group">
+            <button onclick="window.location.href='/members-access/index.html'" class="btn-primary">
+                Member Login / Access
+            </button>
+            <p class="support-text">Inquiries: range@rangeinfo.net</p>
+        </div>
+    </main>
+
+    <footer class="footer-note">
+        <p>A Range Informatics Initiative | © 2026</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log("Ponderr TV: Service Worker Ready"));
+        }
+    </script>
+</body>
+</html>

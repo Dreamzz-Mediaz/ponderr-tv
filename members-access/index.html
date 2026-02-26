@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Ponderr TV Members</title>
+    <link rel="stylesheet" href="/assets/ui/style.css">
+</head>
+<body class="member-dashboard">
+
+    <header class="member-header">
+        <img src="/assets/logos/ponder-logo.png" alt="Ponderr TV" class="nav-logo">
+        <nav>
+            <span class="platform-tag" id="platform-indicator">Detecting Device...</span>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section class="category-row">
+            <h2 class="category-title">Foundation: LKG - Grade 02</h2>
+            <div class="video-grid">
+                <div class="video-card" data-video-id="YOUR_YT_ID_HERE">
+                    <div class="video-thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/YOUR_YT_ID_HERE/mqdefault.jpg" alt="Phonics">
+                        <img src="/assets/icons/watermark.png" class="watermark-overlay">
+                    </div>
+                    <div class="video-info">
+                        <h4>G00 | Phonics | The Magic of Letter A</h4>
+                        <button class="btn-resource" 
+                                onclick="event.stopPropagation(); PonderrApp.handleDownload('/members-access/k12-resources/A_Alphabet_Flyer.pdf', 'Alphabet Flyer')">
+                            Get Printable
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-row">
+            <h2 class="category-title">Professional: Project Management</h2>
+            <div class="video-grid">
+                <div class="video-card" data-video-id="YOUR_YT_ID_2">
+                    <div class="video-thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/YOUR_YT_ID_2/mqdefault.jpg" alt="PM">
+                        <img src="/assets/icons/watermark.png" class="watermark-overlay">
+                    </div>
+                    <div class="video-info">
+                        <h4>PM | Essentials | The Heart of Stewardship</h4>
+                        <button class="btn-resource" 
+                                onclick="event.stopPropagation(); PonderrApp.handleDownload('/members-access/pro-resources/PM_Stewardship_Guide.pdf', 'PM Guide')">
+                            Get Toolkit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="qr-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="qr-text">Scan to Download</h3>
+            <img id="qr-image" src="" alt="QR Code">
+            <button class="close-btn" onclick="PonderrApp.closeModal()">Back to TV</button>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
