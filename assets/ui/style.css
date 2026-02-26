@@ -1,33 +1,54 @@
-/* QR Modal Styles */
-#qr-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+:root {
+    /* Default Dark Theme */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #0f0f0f 0%, #2c3e50 100%);
+    --accent: #e74c3c;
 }
 
-#qr-modal img {
-    border: 10px solid white;
-    border-radius: 10px;
-    margin-bottom: 20px;
+/* Light Theme Variables */
+body.light-theme {
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --text: #2c3e50;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-#qr-text {
-    font-size: 1.5rem;
-    color: white;
-    font-weight: bold;
+/* Contrast Theme Variables */
+body.contrast-theme {
+    --glass-bg: rgba(0, 0, 0, 0.9);
+    --glass-border: #ffff00;
+    --text: #ffff00;
+    --bg-gradient: #000000;
 }
 
-.close-btn {
-    margin-top: 30px;
-    padding: 10px 30px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+body {
+    background: var(--bg-gradient);
+    color: var(--text);
+    min-height: 100vh;
+    transition: all 0.4s ease;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Video Grid Item Glass Effect */
+.video-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
 }
