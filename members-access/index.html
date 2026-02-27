@@ -4,67 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Ponderr TV Members</title>
-    <link rel="stylesheet" href="/assets/ui/style.css">
+    <link rel="stylesheet" href="../assets/ui/style.css">
+    <link rel="preconnect" href="https://www.googleapis.com">
+    <link rel="preconnect" href="https://img.youtube.com">
 </head>
-<body class="member-dashboard">
+<body class="dark-theme">
 
-    <header class="member-header">
-        <img src="/assets/logos/ponder-logo.png" alt="Ponderr TV" class="nav-logo">
-        <nav>
-            <span class="platform-tag" id="platform-indicator">Detecting Device...</span>
-        </nav>
+    <header class="glass-header glass-card">
+        <div class="header-left">
+            <img src="../assets/logos/ponder-logo.png" alt="Ponderr TV" class="nav-logo" style="height: 50px;">
+        </div>
+        
+        <div class="header-center theme-controls">
+            <button onclick="toggleTheme('light-theme')" title="Light Mode">☀️</button>
+            <button onclick="toggleTheme('dark-theme')" title="Dark Mode">🌙</button>
+            <button onclick="toggleTheme('contrast-theme')" title="High Contrast">👁️</button>
+        </div>
+
+        <div class="header-right">
+            <span class="platform-tag glass-card" id="platform-indicator">Detecting...</span>
+        </div>
     </header>
 
-    <div class="container">
+    <main class="container">
         
         <section class="category-row">
-            <h2 class="category-title">Foundation: LKG - Grade 02</h2>
-            <div class="video-grid">
-                <div class="video-card" data-video-id="YOUR_YT_ID_HERE">
-                    <div class="video-thumbnail-wrapper">
-                        <img src="https://img.youtube.com/vi/YOUR_YT_ID_HERE/mqdefault.jpg" alt="Phonics">
-                        <img src="/assets/icons/watermark.png" class="watermark-overlay">
-                    </div>
-                    <div class="video-info">
-                        <h4>G00 | Phonics | The Magic of Letter A</h4>
-                        <button class="btn-resource" 
-                                onclick="event.stopPropagation(); PonderrApp.handleDownload('/members-access/k12-resources/A_Alphabet_Flyer.pdf', 'Alphabet Flyer')">
-                            Get Printable
-                        </button>
-                    </div>
-                </div>
+            <h2 class="category-title">Foundation: K-12 Schoolz</h2>
+            <div id="k12-container" class="video-grid">
+                <div class="loading-spinner">Syncing latest lessons...</div>
             </div>
         </section>
 
         <section class="category-row">
-            <h2 class="category-title">Professional: Project Management</h2>
-            <div class="video-grid">
-                <div class="video-card" data-video-id="YOUR_YT_ID_2">
-                    <div class="video-thumbnail-wrapper">
-                        <img src="https://img.youtube.com/vi/YOUR_YT_ID_2/mqdefault.jpg" alt="PM">
-                        <img src="/assets/icons/watermark.png" class="watermark-overlay">
-                    </div>
-                    <div class="video-info">
-                        <h4>PM | Essentials | The Heart of Stewardship</h4>
-                        <button class="btn-resource" 
-                                onclick="event.stopPropagation(); PonderrApp.handleDownload('/members-access/pro-resources/PM_Stewardship_Guide.pdf', 'PM Guide')">
-                            Get Toolkit
-                        </button>
-                    </div>
-                </div>
+            <h2 class="category-title">Professional: Xplore Academy</h2>
+            <div id="pro-container" class="video-grid">
+                <div class="loading-spinner">Syncing professional tracks...</div>
             </div>
         </section>
 
-    </div>
+    </main>
 
     <div id="qr-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 id="qr-text">Scan to Download</h3>
-            <img id="qr-image" src="" alt="QR Code">
-            <button class="close-btn" onclick="PonderrApp.closeModal()">Back to TV</button>
+        <div class="modal-content glass-card">
+            <h3 id="qr-text" style="color: #000;">Scan to Download</h3>
+            <img id="qr-image" src="" alt="QR Code" style="border: 5px solid #fff; border-radius: 10px;">
+            <p style="color: #333; margin-top: 10px;">Available on your smartphone</p>
+            <button class="close-btn" onclick="PonderrApp.closeModal()" style="margin-top: 20px; padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Back to TV
+            </button>
         </div>
     </div>
 
-    <script src="/js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
