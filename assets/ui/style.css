@@ -5,50 +5,141 @@
     --text: #ffffff;
     --bg-gradient: linear-gradient(135deg, #0f0f0f 0%, #2c3e50 100%);
     --accent: #e74c3c;
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-/* Light Theme Variables */
+/* Theme Variants */
 body.light-theme {
-    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.4);
     --glass-border: rgba(0, 0, 0, 0.1);
     --text: #2c3e50;
     --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
 }
 
-/* Contrast Theme Variables */
 body.contrast-theme {
-    --glass-bg: rgba(0, 0, 0, 0.9);
+    --glass-bg: rgba(0, 0, 0, 1);
     --glass-border: #ffff00;
     --text: #ffff00;
     --bg-gradient: #000000;
 }
 
+/* Core Layout */
 body {
     background: var(--bg-gradient);
     color: var(--text);
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; /* A modern font choice */
     transition: all 0.4s ease;
 }
 
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header & Navigation */
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    border-radius: 12px;
+}
+
+/* Video Grid System */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Glassmorphism Components */
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: var(--card-shadow);
 }
 
-/* Video Grid Item Glass Effect */
 .video-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(5px);
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .video-card:hover {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.15);
+}
+
+.video-thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.video-thumbnail-wrapper img:first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.watermark-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Typography & Titles */
+.category-title {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 5px solid var(--accent);
+    padding-left: 15px;
+}
+
+/* Smart TV Mode Adjustments */
+body.tv-mode {
+    font-size: 1.5rem; /* Larger base text for distance viewing */
+}
+
+body.tv-mode .video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 3rem;
+}
+
+body.tv-mode .category-title {
+    font-size: 3rem;
+}
+
+/* Modal for QR Codes */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    color: black;
 }
